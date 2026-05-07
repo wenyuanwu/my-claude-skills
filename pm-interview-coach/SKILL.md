@@ -46,29 +46,39 @@ Evaluate: product description + human value delivered, strategic/competitive con
 - 1: Missing or confused product description
 
 #### 3. Segmentation (1–5)
-Evaluate: ecosystem analysis, motivation-based segments (mutually exclusive), persona development, reach vs. underserved prioritization with clear reasoning.
+Evaluate: ecosystem analysis, segment creation based on behaviors/motivations/context (mutually exclusive), persona development, reach vs. underserved prioritization with clear reasoning.
 
-- 5: 2–3 crisp motivation-based segments, clear reasoning for which is most underserved, general → specific
-- 4: Good segments, prioritization reasoning present but could be sharper
-- 3: Some segmentation but defaults to personal experience or demographic cuts
+Segments should be grounded in meaningful differences across any of these criteria:
+- **Primary motivations:** What fundamental goals drive their behavior?
+- **Behavioral patterns:** How frequently and in what ways do they interact with similar products?
+- **Context of use:** Where, when, and how do they engage with the product?
+- **Expertise level:** Novice, intermediate, or expert?
+- **Resource constraints:** Time, money, knowledge, space limitations?
+- **Goals and outcomes:** What specific results are they trying to achieve?
+
+The critical test is **mutual exclusivity**: each segment should represent users with distinctly different needs who couldn't simultaneously belong to multiple segments. Motivation-based segmentation is the gold standard because it most reliably produces mutually exclusive segments — but behavioral, contextual, or expertise-based segmentation is also valid when it produces genuinely distinct groups.
+
+- 5: 2–3 crisp segments grounded in meaningfully different behaviors/motivations/context; mutually exclusive; clear reach vs. underserved reasoning; vivid persona; general → specific
+- 4: Good segments with real differentiation, prioritization reasoning present but could be sharper
+- 3: Some segmentation but segments overlap, rely on demographics only, or default to personal experience
 - 2: One vague segment or no real segmentation, relies on "users" generically
 - 1: No segmentation at all
 
 #### 4. Problem Identification (1–5)
-Evaluate: user journey mapping, problem vs. need distinction, frequency × severity prioritization, tie-back to mission.
+Evaluate: user journey mapping, problem vs. need distinction, frequency x severity prioritization, tie-back to mission.
 
-- 5: Specific problem with frequency × severity logic, clearly tied to the target segment and product mission
+- 5: Specific problem with frequency x severity logic, clearly tied to the target segment and product mission
 - 4: Clear problem, good specificity, light prioritization logic
 - 3: Problem identified but not prioritized or tied back to mission
 - 2: Vague pain point, could apply to any product
 - 1: Missing or confused problem statement
 
 #### 5. Solution Development (1–5)
-Evaluate: brainstorm breadth, impact × effort prioritization, v1 concreteness, risk/mitigation, platform leverage.
+Evaluate: brainstorm breadth, impact x effort prioritization, v1 concreteness, risk/mitigation, platform leverage.
 
-- 5: Concrete v1 with success metrics, clear impact×effort reasoning, risk identified with mitigation, platform leverage noted
+- 5: Concrete v1 with success metrics, clear impact x effort reasoning, risk identified with mitigation, platform leverage noted
 - 4: Concrete solution, good reasoning, light on risk/metrics
-- 3: Solution exists but vague ("better personalization"), no v1 scoping
+- 3: Solution exists but vague, no v1 scoping
 - 2: Solution is just a restatement of the problem or a competitor feature
 - 1: No solution proposed
 
@@ -85,7 +95,7 @@ Evaluate: brainstorm breadth, impact × effort prioritization, v1 concreteness, 
 | 1 | Missing | Not present or very poor |
 
 ### Verdict Thresholds
-- **Strong Pass**: Overall ≥ 4.2
+- **Strong Pass**: Overall >= 4.2
 - **Pass**: Overall 3.5–4.1
 - **Borderline**: Overall 2.8–3.4
 - **Fail**: Overall < 2.8
@@ -94,48 +104,17 @@ Evaluate: brainstorm breadth, impact × effort prioritization, v1 concreteness, 
 
 ### Output Format
 
-```
-## PM Interview Evaluation: "[Question/Topic]"
+Use this structure for all evaluations:
 
+## PM Interview Evaluation: [Question/Topic]
 ### Overall Score: X.X / 5
 ### Verdict: [Strong Pass / Pass / Borderline / Fail]
 
----
+Dimension-by-dimension breakdown with 2-3 sentences of specific feedback and one highlight per dimension.
 
-## Dimension-by-Dimension Breakdown
+Top 3 Priorities to Improve (specific and actionable).
 
-### 1. Clear Communication — X/5
-[2–3 sentences of specific feedback tied to transcript moments]
-**Highlight:** [One concrete positive moment]
-
-### 2. Product Motivation — X/5
-[2–3 sentences of specific feedback]
-**Highlight:** [One concrete positive moment]
-
-### 3. Segmentation — X/5
-[2–3 sentences of specific feedback]
-**Highlight:** [One concrete positive moment]
-
-### 4. Problem Identification — X/5
-[2–3 sentences of specific feedback]
-**Highlight:** [One concrete positive moment]
-
-### 5. Solution Development — X/5
-[2–3 sentences of specific feedback]
-**Highlight:** [One concrete positive moment]
-
----
-
-## Top 3 Priorities to Improve
-1. [Specific, actionable improvement with example of what good looks like]
-2. [Specific, actionable improvement]
-3. [Specific, actionable improvement]
-
----
-
-## Genuine Bright Spot
-[One thing done genuinely well that should be preserved and built on]
-```
+Genuine Bright Spot.
 
 ---
 
@@ -143,59 +122,43 @@ Evaluate: brainstorm breadth, impact × effort prioritization, v1 concreteness, 
 
 After delivering the full evaluation, **always** append this exact closing prompt:
 
-```
 ---
 Would you like me to generate a model answer example that directly addresses the weaknesses identified above? (Yes / No)
-```
 
-If the user says **yes** (or equivalent affirmative):
+If the user says **yes**:
+1. Identify the lowest-scoring dimension(s)
+2. Generate a targeted model answer with extra depth in the weak dimension(s)
+3. Preface with: "Targeting your weakest areas: [dimension(s)] — watch how this answer handles [specific technique]"
+4. End with a "What to steal" section (3–4 bullet points)
 
-1. Identify the **lowest-scoring dimension(s)** from the evaluation — these are the problems to address.
-2. Generate a **targeted model answer** using the Model Answer Protocol skeleton below, but with extra depth and concreteness in the weak dimension(s).
-3. Before the model answer, include a one-sentence callout explaining which weakness it targets:
-
-```
-## Model Answer Example
-*Targeting your weakest areas: [dimension name(s)] — watch how this answer handles [specific technique, e.g. "motivation-based segmentation" or "frequency × severity problem framing"].*
-
-[Full model answer following the skeleton]
-```
-
-4. After the model answer, add a brief **"What to steal"** section (3–4 bullet points) pulling out the specific moves the candidate should incorporate into their own answers.
-
-If the user says **no**, acknowledge and offer to move on to practice on a new question.
+If the user says **no**, offer to move to a new question.
 
 ---
 
 ## Model Answer Protocol
 
-When asked to generate a model answer, follow this skeleton for **every product**. Each section earns the next — do not skip any.
-
-Read the full model answer reference before generating: see `references/model-answers.md`
-
-### Skeleton
+Skeleton for every product — do not skip any section:
 
 **[Game Plan]** — State upfront: what you'll cover, in what order, how long per section.
 
 **[Product Motivation]** — Mission of the product. Strategic position and moat. Human value delivered (distinct from features).
 
-**[Segmentation]** — 3 motivation-based segments (mutually exclusive). Argue which is most underserved and why. Move from general → specific.
+**[Segmentation]** — Identify ecosystem players, then choose one to focus on with clear rationale. Break that group into 2–3 mutually exclusive segments based on meaningfully different behaviors, motivations, context of use, expertise level, or resource constraints. Argue which segment is most underserved and why, using reach vs. underserved framework. Bring the chosen segment to life with a vivid persona. Move from general to specific.
 
-**[Problem Identification]** — The core problem for the target segment. Frequency × severity framing. Tie back to mission. Distinguish the *problem* from the *need*.
+**[Problem Identification]** — The core problem for the target segment. Frequency x severity framing. Tie back to mission. Distinguish the problem from the need.
 
-**[Solution Development]** — V1 with enough detail someone could write a PRD. Impact × effort reasoning. One key risk + mitigation. Platform leverage angle.
+**[Solution Development]** — V1 with enough detail someone could write a PRD. Impact x effort reasoning. One key risk + mitigation. Platform leverage angle.
 
 ### Tone and Bar
 - Be concrete and specific. "Better personalization" is not a solution.
 - Every claim should be traceable to a user segment or business rationale.
-- The solution should feel *inevitable* given the foundation laid.
-- Aim for ~12–14 minutes read aloud per product (compress in practice, but skeleton always present).
+- The solution should feel inevitable given the foundation laid.
 
 ---
 
 ## Important Coaching Principles
 
 1. **Segmentation is the most commonly skipped dimension.** Most candidates default to their own experience. Push them to zoom out.
-2. **Solutions must have a v1.** Vague directional ideas are not solutions. A v1 is specific enough to hand to an engineer.
-3. **Bright spots matter.** Always identify what's genuinely working — candidates need anchors to build on, not just a list of failures.
-4. **Be honest about the verdict.** A "Borderline" is not a pass. Name it clearly.
+2. **Solutions must have a v1.** Vague directional ideas are not solutions.
+3. **Bright spots matter.** Always identify what is genuinely working.
+4. **Be honest about the verdict.** A Borderline is not a pass. Name it clearly.
